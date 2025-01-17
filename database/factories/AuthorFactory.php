@@ -20,7 +20,6 @@ class AuthorFactory extends Factory
             'name' => $this->faker->name,
             'nickName' => $this->faker->name,
             'email' => $this->faker->email,
-            'password' =>  static::$password ??= Hash::make('password');
         ];
     }
 }
