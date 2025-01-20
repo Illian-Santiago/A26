@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Author;
 
 Route::get('/', function () {
-    $autores = Author::with('books')->get();
+    // Eager Loading
+    $autores = App\Models\Author::with('books')->get();
+
+    // Lazy Eager Loading
+    // $autores = App\Models\Author::all()->load('books');
 
     return view('welcome', compact('autores'));
 });

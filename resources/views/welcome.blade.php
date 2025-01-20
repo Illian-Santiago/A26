@@ -25,7 +25,7 @@
             @foreach($autores as $autor)
                 <div class="card bg-white shadow-md rounded-lg mb-6">
                     <div class="card-header bg-gray-200 p-4 rounded-t-lg">
-                        <h2 class="text-2xl font-semibold">{{ $autor->name }} {{ $autor->nickName }}</h2>
+                        <h2 class="text-2xl font-semibold text-cyan-400">{{ $autor->name }} {{ $autor->nickName }}</h2>
                     </div>
 
                     <div class="card-body p-4">
@@ -33,7 +33,7 @@
 
                         <ul class="list-disc list-inside">
                             @foreach($autor->books as $book)
-                                <li class="mb-1">{{ $book->title }} <span class="text-gray-500">({{ $book->created_at }})</span></li>
+                                <li class="mb-1 text-amber-800">{{ $book->title }} <span class="text-gray-500">({{ $book->created_at }})</span></li>
                             @endforeach
                         </ul>
                     </div>
