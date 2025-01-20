@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Author;
 
 Route::get('/', function () {
-    return view('welcome');
+    $autores = Author::with('books')->get();
+
+    return view('welcome', compact('autores'));
 });
