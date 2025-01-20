@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Autores y sus libros</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -19,23 +19,26 @@
             </style>
         @endif
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-    <h1>Autores y sus libros</h1>
 
-@foreach($autores as $autor)
-    <div class="card">
-        <div class="card-header">
-            <h2>{{ $autor->nombre }} {{ $autor->apellido }}</h2>
+    <body class="font-sans antialiased dark:bg-black dark:text-white/50 bg-gray-100">
+        <div class="container mx-auto p-6">
+            @foreach($autores as $autor)
+                <div class="card bg-white shadow-md rounded-lg mb-6">
+                    <div class="card-header bg-gray-200 p-4 rounded-t-lg">
+                        <h2 class="text-2xl font-semibold">{{ $autor->name }} {{ $autor->nickName }}</h2>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <h3 class="text-xl font-medium mb-2">Libros:</h3>
+
+                        <ul class="list-disc list-inside">
+                            @foreach($autor->books as $book)
+                                <li class="mb-1">{{ $book->title }} <span class="text-gray-500">({{ $book->created_at }})</span></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endforeach
         </div>
-        <div class="card-body">
-            <h3>Libros:</h3>
-            <ul>
-                @foreach($autor->books as $book)
-                    <li>{{ $book->title }} ({{ $book->created_at }})</li>
-                @endforeach
-            </ul>
-        </div>
-    </div>
-@endforeach
     </body>
 </html>
